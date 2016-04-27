@@ -1,0 +1,57 @@
+#:kivy 1.9.1
+
+<Camouf>:
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 0.1
+        Rectangle:
+            size: self.size        
+            pos: self.pos
+    anim_delay:-1
+    
+
+    
+<GameLayout>:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            source: 'screen_border_back.png'
+            size: self.size
+
+    Body:
+        id: body
+    Hair:
+        id: hair
+    Eyes:
+        id: eyes   
+    Nose:
+        id: nose        
+    Mouth:
+        id: mouth        
+        
+    BoxLayout:
+        orientation: 'horizontal'
+                
+        Button:
+            size_hint: 0.1, 0.1
+            text: 'body'
+            on_touch_down: root.change_camouf(self.text)
+        Button:
+            size_hint: 0.1, 0.1
+            text: 'hair'
+            on_touch_down: root.change_camouf(self.text)
+        Button:
+            size_hint: 0.1, 0.1
+            text: 'eyes'
+            on_touch_down: root.change_camouf(self.text)     
+        Button:
+            size_hint: 0.1, 0.1
+            text: 'nose'
+            on_touch_down: root.change_camouf(self.text)   
+        Button:
+            size_hint: 0.1, 0.1
+            text: 'mouth'
+            on_touch_down: root.change_camouf(self.text)               
+
+
