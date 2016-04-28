@@ -3,7 +3,7 @@
 <Camouf>:
     canvas:
         Color:
-            rgba: 0, 0, 0, 0.1
+            rgba: 0, 0, 0, 0.0
         Rectangle:
             size: self.size        
             pos: self.pos
@@ -23,35 +23,38 @@
         id: body
     Hair:
         id: hair
-    Eyes:
-        id: eyes   
     Nose:
         id: nose        
+    Eyes:
+        id: eyes           
     Mouth:
         id: mouth        
+
+    Image:
+        source: 'screen_border_front.png'
         
     BoxLayout:
         orientation: 'horizontal'
                 
-        Button:
+        Button_Camouf:
             size_hint: 0.1, 0.1
             text: 'body'
-            on_touch_down: root.change_camouf(self.text)
-        Button:
+            #on_touch_down: root.change_camouf(self.text)
+        Button_Camouf:
             size_hint: 0.1, 0.1
             text: 'hair'
-            on_touch_down: root.change_camouf(self.text)
-        Button:
+            #on_touch_down: root.change_camouf(self.text)
+        Button_Camouf:
             size_hint: 0.1, 0.1
             text: 'eyes'
-            on_touch_down: root.change_camouf(self.text)     
-        Button:
+            #on_touch_down: root.change_camouf(self.text)     
+        Button_Camouf:
             size_hint: 0.1, 0.1
             text: 'nose'
-            on_touch_down: root.change_camouf(self.text)   
-        Button:
+            #on_touch_down: root.change_camouf(self.text)   
+        Button_Camouf:
             size_hint: 0.1, 0.1
             text: 'mouth'
-            on_touch_down: root.change_camouf(self.text)               
+            #on_touch_down: root.change_camouf(self.text)               
 
 

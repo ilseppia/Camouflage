@@ -6,6 +6,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.button import Button
 from kivy.clock import Clock
 from kivy.uix.image import Image
 
@@ -27,30 +28,42 @@ class Body(Camouf):
 class Hair(Camouf):
     def __init__(self, **kwargs):
         self.size_hint= 300/800., 150/600.
-        self.pos= (360,150)    
+        self.pos= (360,305)    
         self.source= 'camouf_hair_01.png'
         super(Camouf, self).__init__(**kwargs)          
         
 class Eyes(Camouf):
     def __init__(self, **kwargs):
         self.size_hint= 180/800., 60/600.
-        self.pos= (415,215)    
+        self.pos= (415,330)    
         self.source= 'camouf_eyes_01.png'
         super(Camouf, self).__init__(**kwargs)  
 
 class Nose(Camouf):
     def __init__(self, **kwargs):
         self.size_hint= 180/800., 40/600.
-        self.pos= (415,235)    
+        self.pos= (415,320)    
         self.source= 'camouf_nose_01.png'
         super(Camouf, self).__init__(**kwargs)          
 
 class Mouth(Camouf):
     def __init__(self, **kwargs):
         self.size_hint= 180/800., 40/600.
-        self.pos= (415,265)    
+        self.pos= (415,290)    
         self.source= 'camouf_mouth_01.png'
         super(Camouf, self).__init__(**kwargs)  
+
+class Button_Camouf(Button):
+    def __init__(self, **kwargs):
+        super(Button, self).__init__(**kwargs)
+        
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            self.parent.parent.change_camouf(self.text)
+            return True
+
+                
+            
         
 class GameLayout(FloatLayout):
     def __init__(self, **kwargs):
@@ -62,7 +75,7 @@ class GameLayout(FloatLayout):
         self.inventory['eyes']=[f for f in os.listdir('.') if f.startswith('camouf_eyes')]
         self.inventory['nose']=[f for f in os.listdir('.') if f.startswith('camouf_nose')]
         self.inventory['mouth']=[f for f in os.listdir('.') if f.startswith('camouf_mouth')]
-        print self.inventory
+        #print self.inventory
         self.equipment = {'body':0, 'hair':0, 'eyes':0, 'nose':0, 'mouth':0}
         
     def update(self, dt):
@@ -73,16 +86,7 @@ class GameLayout(FloatLayout):
 
     def change_camouf(self, type):
         self.equipment[type] = (self.equipment[type]+1)%len(self.inventory[type])
-        if type=='body':
-            self.ids.body.source=self.inventory['body'][self.equipment['body']]
-        elif type=='hair':
-            self.ids.hair.source=self.inventory['hair'][self.equipment['hair']] 
-        elif type=='eyes':
-            self.ids.eyes.source=self.inventory['eyes'][self.equipment['eyes']]   
-        elif type=='nose':
-            self.ids.nose.source=self.inventory['nose'][self.equipment['nose']]
-        elif type=='mouth':
-            self.ids.mouth.source=self.inventory['mouth'][self.equipment['mouth']]            
+        self.ids[type].source=self.inventory[type][self.equipment[type]]
         
 class CamouflageApp(App):
     def build(self):
