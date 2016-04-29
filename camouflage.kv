@@ -1,5 +1,5 @@
 #:kivy 1.9.1
-
+#:import os os
 
     
 <Camouf>:
@@ -18,7 +18,7 @@
         Color:
             rgba: 1, 1, 1, 1
         Rectangle:
-            source: 'screen_border_back.png'
+            source: os.path.join('data','screen_border_back.png')
             size: self.size
 
             

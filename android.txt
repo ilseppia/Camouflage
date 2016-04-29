@@ -1,0 +1,3 @@
+title=Camouflage
+author=Forked Tail
+orientation=landscape
