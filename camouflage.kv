@@ -19,16 +19,24 @@
             rgba: 1, 1, 1, 1
         Rectangle:
             source: os.path.join('data','screen_border_back.png')
+            source: os.path.join('data','screen_forkedtaillogo')
             size: self.size
 
             
+<GameaScene@Screen>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: self.size
+            #source: os.path.join('data',self.source)
 
             
             
 <Test>:      
 
     Image:
-        source: 'screen_border_front.png'
+        source: 'screen_car_front.png'
         
     BoxLayout:
         orientation: 'horizontal'
