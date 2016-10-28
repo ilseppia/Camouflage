@@ -1,2 +1,2 @@
 # Camouflage
-Starting from a pyweek entry, new version of Camouflage game using kivy
+Starting from an old  pyweek entry, new version of Camouflage game using kivy
