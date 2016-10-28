@@ -1,67 +1,43 @@
 #:kivy 1.9.1
 #:import os os
 
-    
-<Camouf>:
+
+<GameScene>:
     canvas:
-        Color:
-            rgba: 0, 1, 1, 0.1
         Rectangle:
             size: self.size
-            pos: 0,0
-
-          
+            source: self.background
 
             
-<GameLayout>:
+<Map>:
+    canvas:
+        Rectangle:
+            size: self.size
+            source: self.background
+
+<GridLayout>:
     canvas:
         Color:
-            rgba: 1, 1, 1, 1
+            rgba: 0.8, 0.8, 0.8, 0.2
         Rectangle:
-            source: os.path.join('data','screen_border_back.png')
-            source: os.path.join('data','screen_forkedtaillogo')
+            size: self.size
+            pos: self.pos  
+            
+<Identikit_debug>:
+    canvas:
+        Color:
+            rgba: 0, 1, 1, 0.2
+        Rectangle:
             size: self.size
 
             
-<GameaScene@Screen>:
+<RelativeLayout_debug>            
     canvas:
         Color:
-            rgba: 1, 1, 1, 1
+            rgba: 1, 0, 0, 0.1    
         Rectangle:
             size: self.size
-            #source: os.path.join('data',self.source)
+            pos: self.pos
 
-            
-            
-<Test>:      
 
-    Image:
-        source: 'screen_car_front.png'
-        
-    BoxLayout:
-        orientation: 'horizontal'
-                
-        Button_Camouf:
-            size_hint: 0.1, 0.1
-            text: 'body'
-            #on_touch_down: root.change_camouf(self.text)
-        Button_Camouf:
-            size_hint: 0.1, 0.1
-            text: 'hair'
-            #on_touch_down: root.change_camouf(self.text)
-        Button_Camouf:
-            size_hint: 0.1, 0.1
-            text: 'eyes'
-            #on_touch_down: root.change_camouf(self.text)     
-        Button_Camouf:
-            size_hint: 0.1, 0.1
-            text: 'nose'
-            #on_touch_down: root.change_camouf(self.text)   
-        Button_Camouf:
-            size_hint: 0.1, 0.1
-            text: 'mouth'
-            #on_touch_down: root.change_camouf(self.text)               
-    
-    
-        
-
+               
